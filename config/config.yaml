@@ -1,0 +1,6 @@
+{config-name: SnowCMDBToCustomApp, input.url.base: 'https://dev84127.service-now.com/api/now/table',
+  input.user: admin, input.password: pU4Fu6rDwcVM, input.url.web.target: /cmdb_ci,
+  input.url.web.append: sys_class_name=cmdb_ci_computer^sys_updated_on>=,
+  input.xsl.mapping: 'config\Transformation.xsl',
+  input.from.time: !!timestamp '2019-06-01T07:40:58.953Z', output.url.base: 'https://localhost:9999/endpoint',
+  output.url.web.target: /api, filter.javascript.main: 'config\JavaScriptCodeHook.js'}
