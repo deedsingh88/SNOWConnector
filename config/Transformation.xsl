@@ -9,9 +9,9 @@
 					<cb_Topic />
 					<delta>true</delta>
 					<nestedStates>true</nestedStates>
-					<prod_id>SnowCMDBToApp</prod_id>
-					<sdfType>CI</sdfType>
-					<free>
+					<prod_id>SnowIncidentToHIRO</prod_id>
+					<sdfType>INCIDENT</sdfType>
+					<<mand>
 						<summary>
 							<xsl:value-of select="short_description" />
 						</summary>
@@ -21,6 +21,12 @@
 						<sourceId>
 							<xsl:value-of select="number" />
 						</sourceId>
+						<assignedGroup>
+						    <xsl:value-of select="number" />
+						</assignedGroup>
+						<normalizedStatus>
+							New
+						</normalizedStatus>
 						<urgency>
 							<xsl:value-of select="urgency" />
 						</urgency>
@@ -36,16 +42,15 @@
 						<priority>
 							<xsl:value-of select="priority" />
 						</priority>
-
-					</free>
-					<mand>
-						<incident>
-							<xsl:value-of select="number" />
-						</incident>
+						<assigned_to><xsl:value-of select="assigned_to" /></assigned_to>
 					</mand>
+					<free>
+						<affectedCI>
+							<xsl:value-of select="cmdb_ci/value" />
+						</affectedCI>
+					</free>
 				</root>
 			</xsl:for-each>
 		</result>
 	</xsl:template>
 </xsl:stylesheet>
-
